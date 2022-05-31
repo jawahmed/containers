@@ -1,0 +1,11 @@
+---
+# tasks file for traefik
+- name: traefik
+  docker_container:
+    name: Traefik
+    image: mcd.jfrog.io/pos2-docker-local/traefik-ltsc2016:2.5.5
+    restart_policy: always
+    published_ports: "5009:80"
+    volumes:
+    - /mnt/Data:/app/Data
+    - /mnt/newpos61:/app/newpos61	

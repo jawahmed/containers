@@ -1,0 +1,16 @@
+---
+# tasks file for menu-restaurantinformation-service
+- name: menu-restaurantinformation-service Container
+  docker_container:
+    name: menu-restaurantinformation-service-service
+    image: mcd.jfrog.io/pos2-docker-linux-local/pos2-menu-restaurantinformation-linux-testing:0.3.0
+    restart_policy: always
+    published_ports: "5005:80"        
+    volumes:
+    - /mnt/Data:/app/Data
+    - /mnt/newpos61:/app/newpos61
+    env: 
+      EnvironmentProperties__PosDataFolder=newpos61/PosData
+      EnvironmentProperties__TransformationDataFolder=Data
+      NatsProperties__Servers__0__Host=10.118.111.74
+      NatsProperties__Servers__0__Port=4222

@@ -1,0 +1,16 @@
+---
+# tasks file for configurationdistributor-service
+- name: configurationdistributor-service Container
+  docker_container:
+    name: configurationdistributor-service
+    image: mcd.jfrog.io/pos2-docker-linux-local/pos2-configurationdistributor-linux-testing:0.4.0
+    restart_policy: always
+    published_ports: "5008:80"
+    volumes:
+    - /mnt/Data:/app/Data
+    - /mnt/newpos61:/app/newpos61
+    env:
+     EnvironmentProperties__PosDataFolder=newpos61/PosData
+     EnvironmentProperties__TransformationDataFolder=Data
+     NatsProperties__Servers__0__Host=10.118.111.74             
+     NatsProperties__Servers__0__Port=4222

@@ -1,0 +1,8 @@
+---
+# tasks file for nats-service
+- name: nats-service Container
+  docker_container:
+    name: nats-service  
+    image: https://mcd.jfrog.io/artifactory/pos2-docker-local/nats/nats-docker-latest/
+    restart_policy: always
+    published_ports: "4222:4222"

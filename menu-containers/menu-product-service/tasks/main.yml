@@ -1,0 +1,16 @@
+---
+# tasks file for menu-product-service
+ - name: menu-product-service Container
+   docker_container:
+    name: menu-product-service
+    image: mcd.jfrog.io/pos2-docker-local/pos2-menu-products-linux-testing:0.9.0
+    restart_policy: always
+    published_ports: "5002:80"
+    volumes:
+    - /mnt/Data:/app/Data
+    - /mnt/newpos61:/app/newpos61
+    env:
+      NatsProperties__Servers__0__Host=10.118.111.74
+      NatsProperties__Servers__0__Port=4222
+      EnvironmentProperties__PosDataFolder=newpos61/PosData
+      EnvironmentProperties__TransformationDataFolder=Data

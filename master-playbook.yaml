@@ -1,0 +1,16 @@
+---
+- name: Master Playbook
+  hosts: localhost
+  connection: local
+  roles:
+    - "menu-containers/menu-service"
+    - "menu-containers/menu-restaurantinformation-service"
+    - "menu-containers/menu-product-service"
+    - "menu-containers/menu-outage-service"
+    - "menu-containers/menu-nutirtion-service"
+    - "menu-containers/menu-digitalassets-service"
+    - "menu-containers/configurationdistributor-service"
+    - "infra-containers/nats-service"
+    - "infra-containers/ravendb"
+    - "infra-containers/traefik"
+    

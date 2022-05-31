@@ -1,0 +1,17 @@
+---
+# tasks file for menu-service
+- name: menu-outage-service Container
+  docker_container:
+    name: menu-outage-service-service
+    image: mcd.jfrog.io/pos2-docker-linux-local/pos2-menu-outage-linux-testing:0.2.0
+    restart_policy: always
+    published_ports: "5004:80"
+    volumes:
+    - /mnt/Data:/app/Data
+    - /mnt/newpos61:/app/newpos61
+    env:
+      NatsProperties__Servers__0__Host=10.118.111.74
+      NatsProperties__Servers__0__Port=4222
+      EnvironmentProperties__PosDataFolder=newpos61/PosData
+      EnvironmentProperties__TransformationDataFolder=Data
+      npSpPluginBaseAddress=http://10.118.111.71:8123

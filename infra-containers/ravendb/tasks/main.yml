@@ -1,0 +1,11 @@
+---
+# tasks file for ravendb
+- name: RavenDb Container 
+  docker_container:
+    name: ravendb
+    image: ravendb/ravendb:5.2.100-ubuntu.20.04-x64
+    restart_policy: always
+    published_ports: "8080:8080"
+    volumes:
+    - /mnt/settings:/opt/RavenDB/config
+    - /opt/RavenData:/opt/RavenDB/Server/RavenData
