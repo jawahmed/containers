@@ -7,7 +7,7 @@
     - "menu-containers/menu-restaurantinformation-service"
     - "menu-containers/menu-product-service"
     - "menu-containers/menu-outage-service"
-    - "menu-containers/menu-nutirtion-service"
+    - "menu-containers/menu-nutrition-service"
     - "menu-containers/menu-digitalassets-service"
     - "menu-containers/configurationdistributor-service"
     - "infra-containers/nats-service"
